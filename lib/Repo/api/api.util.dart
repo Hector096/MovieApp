@@ -1,0 +1,1 @@
+enum Apiutil { SUCCESS, LOADING, FAILURE }
