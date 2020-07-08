@@ -9,7 +9,7 @@ class PersonsListBloc {
   BehaviorSubject<PersonPojoResponse>();
 
 
-  getMovie() async {
+  getPersons() async {
     PersonPojoResponse response = await repo.getPersons();
     _subject.sink.add(response);
   }
