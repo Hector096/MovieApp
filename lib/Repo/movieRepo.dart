@@ -34,7 +34,7 @@ import 'package:first_flutter_app/model/moviePojo/movie_response.dart';
       "api_key": apiKey.apikey(),
       "language": "en-US",
       "page:":1,
-      "with_genre": id
+      "with_genre": id,
     };
     try{
       Response response = await dio.get(apiUtil.getMoviesUrl(), queryParameters: params);

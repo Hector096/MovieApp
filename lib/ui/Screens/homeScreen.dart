@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:first_flutter_app/ui/Widgets/nowPlayingWidget.dart';
 import 'package:first_flutter_app/ui/Widgets/personsWidget.dart';
+import 'package:first_flutter_app/ui/Widgets/topMovieWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:first_flutter_app/ui/Styles/appTheme.dart' as Style;
 import 'package:first_flutter_app/ui/Widgets/genreWidget.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: ListView(
-        children: <Widget>[NowPlaying(),GetGenre(),PersonList()],
+        children: <Widget>[NowPlaying(),GetGenre(),PersonList(),TopMoviesList()],
       ),
     );
   }

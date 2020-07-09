@@ -18,5 +18,5 @@ class PersonPojo {
         name = json["name"],
         popularity = json["popularity"],
         profileImg = json["profile_path"],
-        known = json["known_for_department"].toDouble();
+        known = json["known_for_department"];
 }

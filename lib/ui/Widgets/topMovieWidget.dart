@@ -1,45 +1,58 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:first_flutter_app/bloc/getMovieByGenre_bloc.dart';
-import 'package:first_flutter_app/ui/Styles/appTheme.dart' as Style;
+import 'package:first_flutter_app/bloc/getMovies_bloc.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_model.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_response.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:first_flutter_app/ui/Styles/appTheme.dart' as Style;
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class GenreMovies extends StatefulWidget {
-  final int genreId;
-  GenreMovies({Key key, @required this.genreId}) : super(key: key);
+class TopMoviesList extends StatefulWidget {
   @override
-  _GenreMoviesState createState() => _GenreMoviesState(genreId);
+  _TopMoviesListState createState() => _TopMoviesListState();
 }
 
-class _GenreMoviesState extends State<GenreMovies> {
-  final int genreId;
-  _GenreMoviesState(this.genreId);
-
+class _TopMoviesListState extends State<TopMoviesList> {
   @override
   void initState() {
     super.initState();
-    movieByGenreBloc..getMovie(genreId);
+    movieBloc..getMovie();
   }
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<MovieResponse>(
-        stream: movieByGenreBloc.subject.stream,
-        builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data.error != null && snapshot.data.error.length > 0) {
-              return _buildErrorWidget(snapshot.data.error);
-            }
-            return _buildMoviesByGenreWidget(snapshot.data);
-          } else if (snapshot.hasError) {
-            return _buildErrorWidget(snapshot.error);
-          } else {
-            return _buildLoadingWidget();
-          }
-        });
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(top: 20.0, left: 10.0),
+          child: Text(
+            "Top Rated Movies",
+            style: TextStyle(
+                color: Style.Colors.titleColor,
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
+        SizedBox(
+          height: 5.0,
+        ),
+        StreamBuilder<MovieResponse>(
+            stream: movieBloc.subject.stream,
+            builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data.error != null &&
+                    snapshot.data.error.length > 0) {
+                  return _buildErrorWidget(snapshot.data.error);
+                }
+                return _buildTopMovieWidget(snapshot.data);
+              } else if (snapshot.hasError) {
+                return _buildErrorWidget(snapshot.error);
+              } else {
+                return _buildLoadingWidget();
+              }
+            })
+      ],
+    );
   }
 
   Widget _buildLoadingWidget() {
@@ -47,6 +60,7 @@ class _GenreMoviesState extends State<GenreMovies> {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        SizedBox(height: 10),
         SizedBox(
             height: 25.0,
             width: 25.0,
@@ -66,7 +80,7 @@ class _GenreMoviesState extends State<GenreMovies> {
     ));
   }
 
-  Widget _buildMoviesByGenreWidget(MovieResponse data) {
+  Widget _buildTopMovieWidget(MovieResponse data) {
     List<MovieModel> list = data.movies;
 
     if (list.length == 0) {
@@ -95,7 +109,6 @@ class _GenreMoviesState extends State<GenreMovies> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0))),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Icon(EvaIcons.filmOutline,
                                   color: Colors.white, size: 50.0)

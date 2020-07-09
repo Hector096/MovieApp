@@ -97,7 +97,7 @@ class _NowPlayingState extends State<NowPlaying> {
                         image: DecorationImage(
                             image: NetworkImage(
                                 "https://image.tmdb.org/t/p/original/" +
-                                    movies[index].backposter),
+                                    movies[index].backPoster),
                             fit: BoxFit.cover)),
                   ),
                   Container(

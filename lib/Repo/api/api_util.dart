@@ -6,7 +6,7 @@ class ApiUtil {
   }
 
   getPopularUrl() {
-     String popularUrl = "$baseMovieUrl/movie/top-rated";
+     String popularUrl = "$baseMovieUrl/movie/top_rated";
 
     return popularUrl;
   }
@@ -18,7 +18,7 @@ class ApiUtil {
   }
 
   getNowPlayingUrl() {
-     String playingUrl = "$baseMovieUrl/movie/now-playing";
+     String playingUrl = "$baseMovieUrl/movie/now_playing";
 
     return playingUrl;
   }

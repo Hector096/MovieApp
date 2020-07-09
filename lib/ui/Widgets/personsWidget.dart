@@ -1,4 +1,3 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:first_flutter_app/bloc/getPersons_bloc.dart';
 import 'package:first_flutter_app/model/personPojo/personPojo_response.dart';
 import 'package:first_flutter_app/model/personPojo/person_pojo.dart';
