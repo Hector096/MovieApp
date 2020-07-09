@@ -135,6 +135,7 @@ class _PersonListState extends State<PersonList> {
                   fontSize: 7.0,
                   fontWeight: FontWeight.w400,
                   color: Style.Colors.titleColor
+
                 ),),
               ],
             ),
