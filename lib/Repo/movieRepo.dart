@@ -65,5 +65,21 @@ import 'package:first_flutter_app/model/moviePojo/movie_response.dart';
     }
   }
 
+  Future<MovieResponse> getSimilarMovie(int id) async {
+
+    var params = {
+      "api_key": apiKey.apikey(),
+      "language" : "en-US"
+    };
+    try {
+      Response response =
+      await dio.get(apiUtil.getMovieDetail() + "/$id" + "/similar", queryParameters: params);
+      return MovieResponse.fromJson(response.data);
+    } catch (err, stackTrace) {
+      print("Exception occured : $err stackTrace:$stackTrace");
+      return MovieResponse.withError("$err");
+    }
+
+  }
 
 }

@@ -34,4 +34,10 @@ class ApiUtil {
 
     return trendingUrl;
   }
+  getMovieDetail(){
+
+
+    String movieDetialUrl = "$baseMovieUrl/movie";
+    return movieDetialUrl;
+  }
 }
