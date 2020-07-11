@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:first_flutter_app/bloc/getMovies_bloc.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_model.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_response.dart';
+import 'package:first_flutter_app/ui/Screens/detailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:first_flutter_app/ui/Styles/appTheme.dart' as Style;
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -96,89 +97,97 @@ class _TopMoviesListState extends State<TopMoviesList> {
           itemCount: list.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
-              child: Column(
-                children: <Widget>[
-                  list[index].poster == null
-                      ? Container(
-                          width: 120.0,
-                          height: 180.0,
-                          decoration: BoxDecoration(
-                              color: Style.Colors.secondColor,
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(2.0))),
-                          child: Column(
-                            children: <Widget>[
-                              Icon(EvaIcons.filmOutline,
-                                  color: Colors.white, size: 50.0)
-                            ],
-                          ),
-                        )
-                      : Container(
-                          width: 120.0,
-                          height: 180.0,
-                          decoration: BoxDecoration(
-                            color: Style.Colors.secondColor,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(2.0)),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://image.tmdb.org/t/p/w200/" +
-                                        list[index].poster),
-                                fit: BoxFit.cover),
-                          )),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Container(
-                    width: 100.0,
-                    child: Text(
-                      list[index].title,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          height: 1.4,
-                          color: Colors.white,
-                          fontSize: 11.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  Row(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MovieDetailScreen(movie: list[index])));
+                  },
+                  child: Column(
                     children: <Widget>[
-                      Text(
-                        list[index].rating.toString(),
-                        style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      list[index].poster == null
+                          ? Container(
+                              width: 120.0,
+                              height: 180.0,
+                              decoration: BoxDecoration(
+                                  color: Style.Colors.secondColor,
+                                  shape: BoxShape.rectangle,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2.0))),
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(EvaIcons.filmOutline,
+                                      color: Colors.white, size: 50.0)
+                                ],
+                              ),
+                            )
+                          : Container(
+                              width: 120.0,
+                              height: 180.0,
+                              decoration: BoxDecoration(
+                                color: Style.Colors.secondColor,
+                                shape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(2.0)),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://image.tmdb.org/t/p/w200/" +
+                                            list[index].poster),
+                                    fit: BoxFit.cover),
+                              )),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Container(
+                        width: 100.0,
+                        child: Text(
+                          list[index].title,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1.4,
+                              color: Colors.white,
+                              fontSize: 11.0,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
-                        width: 5.0,
+                        height: 5.0,
                       ),
-                      RatingBar(
-                        itemSize: 8.0,
-                        initialRating: list[index].rating / 2,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                        itemBuilder: (context, index) => Icon(EvaIcons.star,
-                            color: Style.Colors.secondColor),
-                        onRatingUpdate: (rating) {
-                          print(rating);
-                        },
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            list[index].rating.toString(),
+                            style: TextStyle(
+                                fontSize: 10.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          RatingBar(
+                            itemSize: 8.0,
+                            initialRating: list[index].rating / 2,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                            itemBuilder: (context, index) => Icon(EvaIcons.star,
+                                color: Style.Colors.secondColor),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),
-            );
+                  ),
+                ));
           },
         ),
       );

@@ -7,7 +7,7 @@ class CastResponse {
   CastResponse(this.error, this.cast);
 
   CastResponse.fromJson(Map<String, dynamic> json)
-      : cast = (json["casts"] as List)
+      : cast = (json["cast"] as List)
             .map((i) => new CastPersonPojo.fromJson(i))
             .toList(),
         error = "";

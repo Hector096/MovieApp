@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/bloc/getMovieVideo_bloc.dart';
 import 'package:first_flutter_app/bloc/getNowPlaying_bloc.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_model.dart';
 import 'package:first_flutter_app/model/moviePojo/movie_response.dart';
@@ -13,11 +14,11 @@ class NowPlaying extends StatefulWidget {
 }
 
 class _NowPlayingState extends State<NowPlaying> {
-  @override
   void initState() {
     super.initState();
     nowPlaying..getNowPlayingMovie();
   }
+
 
   @override
   Widget build(BuildContext context) {
