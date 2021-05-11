@@ -10,15 +10,9 @@ A few resources to get you started if this is your first Flutter project:
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 
-Showing gif
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52205782/117848245-be2c0700-b2a0-11eb-9373-3376f0e3709b.gif)
 
 
 
-Showing Screen Shot
-
-
-![Alt Text](https://gifyu.com/image/5Uvc)
-![Alt Text](https://gifyu.com/image/5Uvn)
 
 
