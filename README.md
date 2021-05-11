@@ -11,13 +11,13 @@ A few resources to get you started if this is your first Flutter project:
 
 
 Showing gif
-![Alt Text](https://tenor.com/view/gif-21517946)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52205782/117848245-be2c0700-b2a0-11eb-9373-3376f0e3709b.gif)
+
 
 
 Showing Screen Shot
 
-![Alt Text](https://gifyu.com/image/5UvW)
-<div class="tenor-gif-embed" data-postid="21517946" data-share-method="host" data-width="100%" data-aspect-ratio="0.46987951807228917"><a href="https://tenor.com/view/gif-21517946">GIF</a> </div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 ![Alt Text](https://gifyu.com/image/5Uvc)
 ![Alt Text](https://gifyu.com/image/5Uvn)
 
