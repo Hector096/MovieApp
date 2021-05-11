@@ -1,6 +1,4 @@
-# first_flutter_app
-
-A new Flutter application.
+## Amazon Prime Clone Movie Application
 
 ## Getting Started
 
@@ -11,6 +9,13 @@ A few resources to get you started if this is your first Flutter project:
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Showing gif
+![Alt Text](https://gifyu.com/image/5Uvb)
+
+
+Showing Screen Shot
+
+![Alt Text](https://gifyu.com/image/5UvW)
+![Alt Text](https://gifyu.com/image/5Uvc)
+![Alt Text](https://gifyu.com/image/5Uvn)
