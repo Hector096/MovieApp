@@ -11,7 +11,7 @@ A few resources to get you started if this is your first Flutter project:
 
 
 Showing gif
-![Alt Text](https://gifyu.com/image/5Uvb)
+![Alt Text](https://tenor.com/view/gif-21517946)
 
 
 Showing Screen Shot
@@ -20,4 +20,4 @@ Showing Screen Shot
 ![Alt Text](https://gifyu.com/image/5Uvc)
 ![Alt Text](https://gifyu.com/image/5Uvn)
 
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
+
